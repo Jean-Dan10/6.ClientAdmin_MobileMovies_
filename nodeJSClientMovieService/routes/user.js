@@ -10,7 +10,7 @@ router.get("/", function (req, res, next) {
 
 router.get("/users", async function (req, res, next) {
   try {
-    const apiUrl = "http://localhost:3000/users";
+    const apiUrl = "http://localhost:3002/users";
     const response = await axios.get(apiUrl);
     const apiData = response.data;
 
@@ -25,7 +25,7 @@ router.get("/user/:userId", async function (req, res, next) {
   const { userId } = req.params;
 
   try {
-    const apiUrl = "http://localhost:3000/users/" + userId;
+    const apiUrl = "http://localhost:3002/users/" + userId;
     const response = await axios.get(apiUrl);
     const apiData = response.data;
 
@@ -36,12 +36,12 @@ router.get("/user/:userId", async function (req, res, next) {
   }
 });
 
-router.get("/user/:userId/movies", async function (req, res, next) {
-  const { userId } = req.params;
+router.get("/user/:username/movies", async function (req, res, next) {
+  const { username } = req.params;
 
   
   try {
-    const apiUrl = "http://localhost:3000/users/" + userId + "/movies";
+    const apiUrl = "http://localhost:3002/users/" + username + "/movies";
     const response = await axios.get(apiUrl);
     const apiData = response.data;
 

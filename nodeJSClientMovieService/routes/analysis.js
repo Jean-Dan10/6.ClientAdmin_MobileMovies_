@@ -8,7 +8,7 @@ router.get("/most-saved-movie", async function (req, res, next) {
 
   try {
     
-    const apiUrl = "http://localhost:3000/analysis/most-saved-movie";
+    const apiUrl = "http://127.0.0.1:5000/movies/most-saved";
     const response = await axios.get(apiUrl);
     const apiData = response.data;
 
@@ -22,22 +22,22 @@ router.get("/most-saved-movie", async function (req, res, next) {
 
 router.get("/global-stat", async function (req, res, next) {
   try {
-    const apiUrl1 = "http://localhost:3000/analysis/count-user";
+    const apiUrl1 = "http://127.0.0.1:5000/users/total";
     const response1 = await axios.get(apiUrl1);
     
 
-    const apiUrl2 = "http://localhost:3000/analysis/count-total-movie-saved";
+    const apiUrl2 = "http://127.0.0.1:5000/movies/total-saved";
     const response2 = await axios.get(apiUrl2);
     
 
-    const apiUrl3 = "http://localhost:3000/analysis/average-movie-by-list";
+    const apiUrl3 = "http://127.0.0.1:5000/movies/average-per-user";
     const response3 = await axios.get(apiUrl3);
     console.log(response3)
 
     const apiData = {
       numberOfUsers: response1.data.data.numberOfUsers,
       numberOfMovies: response2.data.data.numberOfMovies,
-      globalAverageMovies: response3.data.data.globalAverageMovies,
+      globalAverageMovies: response3.data.averageMoviePerUser,
     };
 
     console.log(apiData);

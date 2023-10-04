@@ -10,17 +10,17 @@
     <body>
       <table>
         <tr>
-          <th>ID</th>
+          
           <th>Nom d'utilisateur</th>
           <th>Mot de passe</th>
           <th>Liste des films</th>
         </tr>
         <% apiData.userList.forEach((user) => { %>
         <tr>
-          <td><%= user.id %></td>
+         
           <td><%= user.username %></td>
           <td><%= user.password %></td>
-          <td><a href="/user/<%=user.id%>/movies">Liste</p></td>
+          <td><a href="/user/<%=user.username%>/movies">Liste</p></td>
         </tr>
         <% }) %>
       </table>
